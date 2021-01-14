@@ -4,7 +4,11 @@ import { Box, Container  } from "@chakra-ui/react"
 
 export default function MyInfo(){
     return(
-    <Box bg="tomato" w="100%" p={4} color="white" paddingRight = "10cm">
+    <Box 
+    bg="tomato" 
+    w="100%" p={4} 
+    color="white" 
+    paddingLeft = "5%">
         <h1>Yuval Sagman</h1>
         <p>hi! i love cats and stuff</p>
         <ul>
