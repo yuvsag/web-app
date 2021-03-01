@@ -1,17 +1,47 @@
-import React from 'react'
-import { Stack, HStack, VStack ,Checkbox, CheckboxGroup} from "@chakra-ui/react"
+import React, { useState } from "react";
+import {
+  Stack,
+  HStack,
+  VStack,
+  Checkbox,
+  CheckboxGroup,
+  Button,
+  Input,
+} from "@chakra-ui/react";
 
-interface Props{
-    item: string;
+interface Props {
+  items: Array<string>;
 }
 
-export const TodoList: React.FC<Props> = ({item}) => {
-    return(
-        
-        <Stack spacing = {10} direction = "column">
-            <Checkbox >{item}</Checkbox>
-            <Checkbox> item B</Checkbox>
-            <Checkbox>item C</Checkbox>
-        </Stack>
-    );
-}
+export const TodoOBJ = {
+  count: 0,
+};
+
+export const TodoList: React.FC<Props> = ({ items }) => {
+  return (
+    <VStack alignItems="start">
+      {items.map((item) => {
+        return <Checkbox>{item}</Checkbox>;
+      })}
+    </VStack>
+  );
+};
+
+export const InputForm: React.FC = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <HStack>
+      <Input placeholder={`${TodoOBJ.count}...`} />
+
+      <Button
+        bg="teal"
+        onClick={() => {
+          setCount(count + 1);
+          TodoOBJ.count++;
+        }}
+      >
+        OK
+      </Button>
+    </HStack>
+  );
+};
